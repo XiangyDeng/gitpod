@@ -172,14 +172,14 @@ func configmap(ctx *common.RenderContext) ([]runtime.Object, error) {
 			TimeoutSeconds:  300,
 		},
 		WorkspaceDefaults: WorkspaceDefaults{
-			WorkspaceImage:      workspaceImage,
+			WorkspaceImage:      "mallowmelody/gitpod-browser-vnc:v1",
 			PreviewFeatureFlags: []NamedWorkspaceFeatureFlag{},
 			DefaultFeatureFlags: []NamedWorkspaceFeatureFlag{},
 			TimeoutDefault:      ctx.Config.Workspace.TimeoutDefault,
 			TimeoutExtended:     ctx.Config.Workspace.TimeoutExtended,
 		},
 		Session: Session{
-			MaxAgeMs: 259200000,
+			MaxAgeMs: 60000,
 			Secret:   sessionSecret,
 		},
 		DefinitelyGpDisabled: ctx.Config.DisableDefinitelyGP,
